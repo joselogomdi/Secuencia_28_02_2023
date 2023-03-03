@@ -1,35 +1,35 @@
 <?php
-    $nombre = (string) "Miguel Angel Castro Escamilla";
-    $edad = (int) 23;
-    $altura = (double) 1.63;
+    header('Access-Control-Allow-Origin: *');
+    header('Content-Type: application/json; charset=utf-8');
+    
+    $nombre = (string) "José Luis Gómez Díaz";
+    $edad = (int) 44;
+    $altura = (double) 1.86;
     $esProfesor = (boolean) true;
     
     $pasaTiempo = (array) [
-        "Cocinar",
-        "Programar",
-        "Escuchar musica",
+        "Ajedrez",
+        "Escuchar música",
+        "Aprender diferentes cosas",
+        "Leer",
     ];
 
-    $veiculo = (object) [
-        "tipo de veiculo" => "moto",
-        "color" => "Rojo",
-        "llantas" => 2,
+    $vehiculo = (object) [
+        "Tipo de vehículo" => "Carro",
+        "Color" => "Gris",
+        "Llantas" => 4,
         "Frenos" => true,
-        "Kilometraje" => 102.564
+        "Kilometraje" => "No sé..."
     ];
     
-    echo "Nombre: $nombre<br>";
-    echo "Edad: $edad<br>";
-    echo "Altura: $altura<br>";
-    echo "Es el profesor: $esProfesor<br>";
-    echo "Pasa tiempos: ".json_encode($pasaTiempo)."<br>";
-    echo "Veiculo: ".json_encode($veiculo);
+    $json = (object) [];
+    $json->NOMBRE = $nombre;
+    $json->EDAD = $edad;
+    $json->ALTURA = $altura;
+    $json->ESPROFESOR = $esProfesor;
+    $json->PASATIEMPO = $pasaTiempo;
+    $json->VEHICULO = $vehiculo;
+    $json->SERVER = $_SERVER['HTTP_HOST'];
+
+    echo json_encode($json, JSON_PRETTY_PRINT);
 ?>
-
-
-
-
-
-
-
-
